@@ -27,14 +27,14 @@ jobs:
             args: --all-targets --all-features --workspace -- -D warnings
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - name: Setup Rust
-        uses: esp-rs/xtensa-toolchain@v1.5
+        uses: esp-rs/xtensa-toolchain@0088514ebbc8200b17cea4ed68003ded1fc8cc4b # v1.5
         with:
           default: true
           buildtargets: esp32
           ldproxy: true
       - name: Enable caching
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2.7.3
       - name: Run command
         run: cargo ${{ matrix.action.command }} ${{ matrix.action.args }}
